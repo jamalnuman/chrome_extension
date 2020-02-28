@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Chrome Extension",
+  "version": "0.1",
+  "options_ui":{
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "content_scripts": [
+    {
+      "matches":[
+        "<all_urls>"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": ["storage"],
+  "background": {
+    "scripts": ["options2.js"]
+  },
+  "browser_action": {
+    "default_icon": "apple_button.png"
+  }
+}
+
+//all you need for a chrome extension is a manifest.json and content.js file.
+//the code you want to execute on each page will reside in the content.js file 
+
+//the content scripts execute when the page completely loads..within the content scripts, a content.js file is needed..this is where the js code will be written to be executed when the page loads. 
+
+//load unpack extension is when you want to upload files to be used just on the laptop, pack extension is when the files are packaged and ready to be deployed on the chrome store. 
+
+//background is involved with page and web browswer actions..it doesnot talk to the console and to debug, yu would have to inspect the background console from the chrome extension page
